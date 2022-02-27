@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "c2h4a5O1fGZGJ+0SMJZ+NOH809zHHgjwVausUughqlX4Lubg5w3MchZ0vRGxXTAob7uSp3QQw9nDBImRdoug9w==",
+  "dgSpecHash": "HCLvtNZyFQrq4EukR8tP+12uqJu79oOrPbKkPz3GHtXT2Cs99fckBMhdBtW9PwvgWwlIJY7xlF5ZnTFGAhrzag==",
   "success": true,
   "projectFilePath": "C:\\Users\\KBore\\source\\repos\\ToyStore\\ToyStore\\ToyStore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\KBore\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\KBore\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\KBore\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\KBore\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\10.0.1\\mediatr.extensions.microsoft.dependencyinjection.10.0.1.nupkg.sha512",
     "C:\\Users\\KBore\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\KBore\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
     "C:\\Users\\KBore\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",

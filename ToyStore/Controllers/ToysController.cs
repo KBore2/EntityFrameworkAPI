@@ -1,7 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ToyStore.Command;
+using ToyStore.Command.ToyCommand;
 using ToyStore.Data;
 using ToyStore.Models;
+using ToyStore.Queries.ToyQueries;
 using ToyStore.Services;
 
 namespace ToyStore.Controllers
@@ -11,35 +15,37 @@ namespace ToyStore.Controllers
     public class ToysController : Controller
     {
         
-        private readonly ToysServices services;
+        private readonly IMediator mediator;
 
-        public ToysController(DataContext context)
+        public ToysController(IMediator mediator)
         {
             
-            services = new ToysServices(context);
+            this.mediator = mediator;
         }
 
         [HttpGet]
         public async Task<ActionResult<List<AbstractToy>>> Get()
         {
-            return Ok(services.Get().Result.Value);
+            var response = await mediator.Send(new GetToysQuery());
+            return Ok(response);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<AbstractToy>> Get(int id)
         {
- 
-
-            return Ok(services.Get(id).Result.Value);
+            var response = await mediator.Send(new GetToyByIdQuery(id));
+            return Ok(response);
 
         }
 
         [HttpGet("{id}/play")]
         public async Task<ActionResult<string>> Play(int id)
         {
-            
-            var message = services.Play(id).Result.Value;
-            return Content(message);
+
+            var response = await mediator.Send(new PlayWithToyCommand(id));
+            return Ok(response);
+
+
 
         }
 
@@ -48,7 +54,12 @@ namespace ToyStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                await services.Add(toy);
+                AddToyCommand command = new AddToyCommand();
+                command.Name = toy.Name;
+                command.CustomerID = toy.CustomerID;
+                command.DateCreated = toy.DateCreated;
+                command.Type = toy.Type;
+                await mediator.Send(command);
                 return NoContent();
             }
 
@@ -58,18 +69,21 @@ namespace ToyStore.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<AbstractToy>> Update(AbstractToy toy)
+        public async Task<ActionResult<AbstractToy>> Update(BearToy toy)
         {
-
-            return Ok(services.Update(toy).Result.Value);
+            UpdateToyCommand command = new UpdateToyCommand(toy.Id);
+            command.Name = toy.Name;
+            var response = await mediator.Send(command);
+            return Ok(response);
 
         }
 
         [HttpDelete]
         public async Task<ActionResult<List<AbstractToy>>> Delete(int id)
         {
-     
-            return Ok(services.Delete(id).Result.Value);
+
+            var response = await mediator.Send(new DeleteToyCommand(id));
+            return Ok(response);
 
         }
 

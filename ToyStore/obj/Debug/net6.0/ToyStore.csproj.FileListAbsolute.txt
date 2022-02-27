@@ -524,3 +524,6 @@ C:\Users\KBore\source\repos\ToyStore\ToyStore\obj\Debug\net6.0\ToyStore.dll
 C:\Users\KBore\source\repos\ToyStore\ToyStore\obj\Debug\net6.0\ref\ToyStore.dll
 C:\Users\KBore\source\repos\ToyStore\ToyStore\obj\Debug\net6.0\ToyStore.pdb
 C:\Users\KBore\source\repos\ToyStore\ToyStore\obj\Debug\net6.0\ToyStore.genruntimeconfig.cache
+C:\Users\KBore\source\repos\ToyStore\ToyStore\bin\Debug\net6.0\MediatR.dll
+C:\Users\KBore\source\repos\ToyStore\ToyStore\bin\Debug\net6.0\MediatR.Contracts.dll
+C:\Users\KBore\source\repos\ToyStore\ToyStore\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
